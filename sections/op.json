@@ -1,0 +1,446 @@
+[
+  {
+    "title_ar": "جهاز كي وقطع جراحي",
+    "title_en": "Electrosurgical Unit",
+    "devices": [
+      {
+        "name_ar": "جهاز مراقبة Philips IntelliVue MP50",
+        "name_en": "Philips IntelliVue MP50 Monitor",
+        "desc": "جهاز متكامل لمراقبة الوظائف الحيوية للمريض، يوفر دقة وموثوقية عالية مع واجهة سهلة الاستخدام.",
+        "price": "45000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      },
+      {
+        "name_ar": "جهاز مراقبة GE Carescape B650",
+        "name_en": "GE Carescape B650 Monitor",
+        "desc": "شاشة مراقبة متقدمة توفر بيانات شاملة للمرضى، مثالية للاستخدام في وحدات العناية المركزة.",
+        "price": "52000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "جهاز مراقبة Mindray BeneVision N12",
+        "name_en": "Mindray BeneVision N12 Monitor",
+        "desc": "جهاز مراقبة متعدد المعايير، يجمع بين الأداء القوي والمرونة في الاستخدام.",
+        "price": "42000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "جهاز مراقبة Dräger Infinity Delta",
+        "name_en": "Dräger Infinity Delta Monitor",
+        "desc": "حل مراقبة قابل للتطوير يوفر رؤى قيمة لحالة المريض، مع إمكانية التوصيل بالشبكات.",
+        "price": "48000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "جهاز مراقبة Nihon Kohden BSM-6000",
+        "name_en": "Nihon Kohden BSM-6000 Monitor",
+        "desc": "جهاز مراقبة موثوق به يوفر قياسات دقيقة للوظائف الحيوية مع تصميم مدمج.",
+        "price": "39000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      },
+      {
+        "name_ar": "جهاز مراقبة Schiller Argus Pro",
+        "name_en": "Schiller Argus Pro Monitor",
+        "desc": "شاشة لمس سهلة الاستخدام لمراقبة مستمرة ودقيقة للعلامات الحيوية في مختلف البيئات.",
+        "price": "37000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      }
+    ]
+  },
+  {
+    "title_ar": "جهاز تخدير",
+    "title_en": "Anesthesia Machine",
+    "devices": [
+      {
+        "name_ar": "جهاز تنفس Maquet Servo-i",
+        "name_en": "Maquet Servo-i Ventilator",
+        "desc": "جهاز تنفس صناعي متعدد الاستخدامات يوفر دعمًا تنفسيًا متقدمًا لمختلف الحالات.",
+        "price": "180000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      },
+      {
+        "name_ar": "جهاز تنفس Hamilton C6",
+        "name_en": "Hamilton C6 Ventilator",
+        "desc": "تقنية تهوية ذكية تجمع بين الأداء العالي وسهولة الاستخدام، لنتائج علاجية أفضل.",
+        "price": "195000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "جهاز تنفس Dräger Savina 300",
+        "name_en": "Dräger Savina 300 Ventilator",
+        "desc": "جهاز تنفس موثوق به يوفر تهوية فعالة وآمنة، مناسب لوحدات العناية المركزة والطوارئ.",
+        "price": "165000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "جهاز تنفس Vyaire Avea",
+        "name_en": "Vyaire Avea Ventilator",
+        "desc": "نظام تهوية متقدم يوفر خيارات علاجية واسعة ودعمًا شاملاً للمرضى من مختلف الفئات العمرية.",
+        "price": "175000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "جهاز تنفس Medtronic Puritan Bennett 980",
+        "name_en": "Medtronic PB 980 Ventilator",
+        "desc": "يجمع بين الدقة في توصيل الأكسجين والميزات البديهية، لدعم تنفسي آمن وفعال.",
+        "price": "205000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      },
+      {
+        "name_ar": "جهاز تنفس Getinge Flow-i",
+        "name_en": "Getinge Flow-i Ventilator",
+        "desc": "حل تهوية عالي الأداء مع تصميم مرن، يوفر تهوية دقيقة ومستقرة للمرضى.",
+        "price": "190000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      }
+    ]
+  },
+  {
+    "title_ar": "إضاءة جراحية",
+    "title_en": "Surgical Light",
+    "devices": [
+      {
+        "name_ar": "مضخة حقن Fresenius Kabi Agilia Syringe Pump",
+        "name_en": "Fresenius Kabi Agilia Syringe Pump",
+        "desc": "مضخة حقن دقيقة لتقديم الأدوية والمحاليل بجرعات محددة وآمنة.",
+        "price": "15000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      },
+      {
+        "name_ar": "مضخة محاليل B. Braun Perfusor Space",
+        "name_en": "B. Braun Perfusor Space Infusion Pump",
+        "desc": "مضخة محاليل ذكية توفر تدفقًا دقيقًا للمحاليل الوريدية مع ميزات أمان متقدمة.",
+        "price": "18000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "مضخة حقن Medtronic Ivac P7000",
+        "name_en": "Medtronic Ivac P7000 Syringe Pump",
+        "desc": "مضخة حقن موثوقة وسهلة الاستخدام، تضمن توصيل دقيق وفعال للأدوية.",
+        "price": "14000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "مضخة محاليل Baxter Sigma Spectrum",
+        "name_en": "Baxter Sigma Spectrum Infusion Pump",
+        "desc": "مضخة محاليل متطورة مصممة لتقليل الأخطاء الدوائية وتحسين سلامة المريض.",
+        "price": "20000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "مضخة حقن Smiths Medical Medfusion 4000",
+        "name_en": "Smiths Medical Medfusion 4000 Syringe Pump",
+        "desc": "مضخة حقن دقيقة ومبرمجة، تستخدم في الحالات التي تتطلب جرعات دقيقة جدًا.",
+        "price": "16500 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      },
+      {
+        "name_ar": "مضخة محاليل Alaris IVAC PCU",
+        "name_en": "Alaris IVAC PCU Infusion Pump",
+        "desc": "نظام متعدد القنوات لتوصيل المحاليل الوريدية، يوفر مرونة وكفاءة عالية.",
+        "price": "19000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      }
+    ]
+  },
+  {
+    "title_ar": "سرير العمليات",
+    "title_en": "Operating Table",
+    "devices": [
+      {
+        "name_ar": "جهاز صدمات Zoll AED Pro",
+        "name_en": "Zoll AED Pro Defibrillator",
+        "desc": "جهاز إزالة رجفان خارجي آلي، مصمم للاستخدام في حالات الطوارئ القلبية.",
+        "price": "35000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      },
+      {
+        "name_ar": "جهاز صدمات Philips HeartStart MRx",
+        "name_en": "Philips HeartStart MRx Defibrillator",
+        "desc": "جهاز إزالة رجفان ومراقبة متعدد الوظائف، يوفر خيارات متكاملة للإنقاذ.",
+        "price": "42000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "جهاز صدمات Physio-Control LIFEPAK 15",
+        "name_en": "Physio-Control LIFEPAK 15",
+        "desc": "شاشة/مزيل رجفان قوي ومتعدد الإمكانات، يستخدم في البيئات الطبية الصعبة.",
+        "price": "50000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "جهاز صدمات Schiller FRED Easyport",
+        "name_en": "Schiller FRED Easyport AED",
+        "desc": "جهاز صغير الحجم وسهل الاستخدام، مثالي للطوارئ في الأماكن العامة.",
+        "price": "30000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "جهاز صدمات CU Medical Systems CU-ART",
+        "name_en": "CU Medical Systems CU-ART AED",
+        "desc": "جهاز إزالة رجفان آلي مع توجيهات صوتية واضحة، مناسب للمستخدمين غير المدربين.",
+        "price": "32000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      },
+      {
+        "name_ar": "جهاز صدمات BeneHeart D3",
+        "name_en": "BeneHeart D3 Defibrillator",
+        "desc": "جهاز صدمات ومراقبة مدمج، يوفر أداءً ممتازًا في بيئات الرعاية الحرجة.",
+        "price": "38000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      }
+    ]
+  },
+  {
+    "title_ar": "قلم الكي وجهاز شفط الدخان",
+    "title_en": "Cautery Pencil & Smoke Evacuator",
+    "devices": [
+      {
+        "name_ar": "شفاط عمليات ATMOS C 451",
+        "name_en": "ATMOS C 451 Suction Machine",
+        "desc": "شفاط جراحي قوي وعالي الكفاءة، مصمم لتلبية احتياجات العمليات الجراحية.",
+        "price": "12000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      },
+      {
+        "name_ar": "شفاط عمليات SÜDA S35",
+        "name_en": "SÜDA S35 Suction Machine",
+        "desc": "شفاط محمول عالي الأداء، مثالي للاستخدام في العيادات أو في حالات الطوارئ.",
+        "price": "10500 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "شفاط عمليات Medela Dominant Flex",
+        "name_en": "Medela Dominant Flex Suction Machine",
+        "desc": "يوفر شفطًا قويًا ومستمرًا، مع تصميم مرن يسهل التعامل معه في العمليات.",
+        "price": "14000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "شفاط عمليات Laerdal Suction Unit (LSU)",
+        "name_en": "Laerdal LSU Suction Unit",
+        "desc": "وحدة شفط قوية وموثوقة، مصممة للاستخدام في البيئات الطبية الصعبة والطوارئ.",
+        "price": "9500 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "شفاط عمليات Weinmann ACCUVAC Pro",
+        "name_en": "Weinmann ACCUVAC Pro",
+        "desc": "جهاز شفط محمول للاستخدام في حالات الطوارئ والنقل، يتميز ببطارية قوية.",
+        "price": "11500 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      },
+      {
+        "name_ar": "شفاط عمليات Devilbiss Vacu-Aid",
+        "name_en": "Devilbiss Vacu-Aid Suction Machine",
+        "desc": "شفاط صغير الحجم وخفيف الوزن، مثالي للاستخدام المنزلي أو السفر.",
+        "price": "8000 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      }
+    ]
+  },
+  {
+    "title_ar": "وحده منظار",
+    "title_en": "Endoscopy Unit",
+    "devices": [
+      {
+        "name_ar": "جهاز تبخير Omron CompAir NE-C28",
+        "name_en": "Omron CompAir NE-C28 Nebulizer",
+        "desc": "جهاز تبخير فعال يوفر توصيل سريع للدواء، مثالي للاستخدام المنزلي والعيادات.",
+        "price": "1800 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      },
+      {
+        "name_ar": "جهاز تبخير Philips Respironics InnoSpire Elegance",
+        "name_en": "Philips InnoSpire Elegance Nebulizer",
+        "desc": "تصميم مدمج وأداء موثوق، يوفر استنشاقًا فعالًا للعلاج التنفسي.",
+        "price": "2200 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "جهاز تبخير Pari LC Plus",
+        "name_en": "Pari LC Plus Nebulizer",
+        "desc": "جهاز تبخير عالي الجودة يوفر توصيلًا فعالًا للدواء للرئتين.",
+        "price": "2500 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "جهاز تبخير Drive Medical Whisper Quiet",
+        "name_en": "Drive Medical Whisper Quiet Nebulizer",
+        "desc": "جهاز تبخير هادئ ومريح، مثالي للاستخدام أثناء النوم أو في الأماكن الهادئة.",
+        "price": "1600 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png"
+        ]
+      },
+      {
+        "name_ar": "جهاز تبخير Rossmax NA100",
+        "name_en": "Rossmax NA100 Nebulizer",
+        "desc": "جهاز تبخير صغير ومحمول، يوفر علاجًا تنفسيًا فعالًا أثناء التنقل.",
+        "price": "1500 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      },
+      {
+        "name_ar": "جهاز تبخير Yuwell 403MT",
+        "name_en": "Yuwell 403MT Nebulizer",
+        "desc": "جهاز تبخير ضاغط موثوق واقتصادي، مناسب للاستخدام العائلي.",
+        "price": "1400 جنيه مصري",
+        "images": [
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg",
+          "../img/الرعاية المركزة/plan.png",
+          "../img/الرعاية المركزة/img.jpeg"
+        ]
+      }
+    ]
+  }
+]

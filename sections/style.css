@@ -1,0 +1,1508 @@
+/* --- icu.css --- */
+
+body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0ecff;
+    direction: rtl;
+    /* هذا مهم جداً لتحديد الاتجاه الافتراضي للموقع RTL */
+    overflow-x: hidden;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+.main-header {
+    background-color: #E0ECFF;
+    color: white;
+    padding: 5px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1050;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    /* يدفع العناصر إلى أقصى اليمين واليسار */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    /* لتمكين التموضع المطلق إذا لزم الأمر */
+    padding: 0 20px;
+    /* لإضافة مسافة داخلية من الجوانب */
+}
+
+
+/* تعديلات على زر القائمة الجانبية (الثلاثة خطوط) */
+
+.menu-toggle {
+    background: transparent;
+    color: #0b3d91;
+    /* لون أيقونة الثلاثة خطوط */
+    font-size: 28px;
+    border: none;
+    cursor: pointer;
+    z-index: 1101;
+    display: block;
+    /* للتأكد من ظهوره في وضع الموبايل/التابلت */
+    padding: 5px;
+    transition: transform 0.3s ease;
+    position: sticky;
+    /* مهم: لجعله يتبع تدفق Flexbox */
+    order: 1;
+    /* في RTL، هذا يضعه في أقصى اليمين (الموضع الأول) */
+    right: auto;
+    top: auto;
+    transform: none;
+}
+
+.menu-toggle:hover {
+    color: #1a50a7;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    order: 2;
+    /* الشعار في المنتصف */
+}
+
+.logo img {
+    height: 70px;
+}
+
+
+/* تعديلات على أيقونة سلة المشتريات لتموضع العلامة الحمراء */
+
+.cart-icon-container {
+    position: relative;
+    /* مهم: ليكون العنصر الأب الذي يحدد موقع العلامة الحمراء */
+    cursor: pointer;
+    font-size: 20px;
+    color: #0B3D91;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 3;
+    /* في RTL، هذا يضعه في أقصى اليسار (الموضع الثالث) */
+    /* إزالة أي خاصيات position: absolute; top; left; right; قديمة كانت في هذا السلك */
+}
+
+
+/* العلامة الحمراء (عدد المنتجات) - تم جعلها دائرية وأصغر والنص في المنتصف */
+
+.cart-item-count {
+    position: absolute;
+    top: -6px;
+    /* يرتفع للأعلى أكثر */
+    left: -6px;
+    /* في RTL، يظهر على يسار الأيقونة */
+    background-color: #e74c3c;
+    color: white;
+    font-size: 11px;
+    border-radius: 50%;
+    /* لتكون دائرية */
+    padding: 5px 7px;
+    /* تصغير الـ padding ليكون متساوياً */
+    min-width: 18px;
+    /* نفس قيمة min-height */
+    min-height: 18px;
+    /* نفس قيمة min-width */
+    display: flex;
+    /* لضمان التوسيط الرأسي والأفقي للنص */
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    /* لضمان أن ارتفاع السطر لا يضيف مسافة */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    /* لضمان أن الـ padding لا يزيد الحجم عن min-width/height */
+}
+
+
+/* قاعدة للتحكم في مكان الـ cart-item-count في LTR */
+
+body[dir="ltr"] .cart-item-count,
+html[dir="ltr"] .cart-item-count {
+    left: auto;
+    /* إلغاء left */
+    right: -6px;
+    /* وضعه على اليمين في LTR */
+}
+
+
+/* إخفاء القائمة الرئيسية على الديسكتوب في الوضع الافتراضي للموبايل/التابلت */
+
+.main-nav.desktop-nav {
+    display: none;
+}
+
+
+/* القائمة الجانبية (Side Menu) نفسها */
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    /* تعديل اتجاه الفتح: تفتح من اليسار في RTL */
+    right: -250px;
+    /* مخفية في البداية على اليسار */
+    left: auto;
+    /* التأكد من أن right ليست مفعلة */
+    width: 200px;
+    height: 100vh;
+    background-color: #0b3d91;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    transition: right 0.3s ease-in-out;
+    /* تغيير transition ليعمل مع left */
+    z-index: 1100;
+    list-style-type: none;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+    /* عكس الظل ليتناسب مع الفتح من اليسار */
+}
+
+.side-menu.open {
+    right: 0;
+    /* عند الفتح، تتحرك إلى 0 من اليسار */
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu li {
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.side-menu li:last-child {
+    border-bottom: none;
+}
+
+.side-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    display: block;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.side-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.side-menu .has-sub .submenu {
+    list-style-type: none;
+    padding-right: 15px;
+    /* يبقى padding-right ليتناسب مع RTL */
+    background-color: rgba(0, 16, 163, 0.7);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-in-out;
+}
+
+.side-menu .has-sub.active .submenu {
+    max-height: 300px;
+}
+
+.side-menu .submenu li {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.side-menu .submenu li:last-child {
+    border-bottom: none;
+}
+
+.side-menu .submenu a {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.side-menu .submenu a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.section-title {
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: inset 0 -2px 6px rgba(0, 0, 0, 0.15);
+    margin: 0;
+    background-color: #f7faff;
+    color: #0b3d91;
+    font-size: 20px;
+}
+
+.section-title h2 {
+    margin: 0;
+    font-size: 1.15em;
+}
+
+.device-section {
+    padding: 25px 20px 40px 20px;
+    background: #fff;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    margin: 2% auto 5% auto;
+    max-width: 1200px;
+}
+
+.device-section h3 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #0b3d91;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.device-section h3 span {
+    font-size: 0.7em;
+    color: #666;
+}
+
+.device-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #009688;
+    border-radius: 2px;
+}
+
+.device-slider-container {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(11, 61, 145, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.slider-arrow:hover {
+    background-color: #0b3d91;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.device-slider {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 15px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.device-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.device-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    flex: 0 0 235px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #eee;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    /* Fixed card height for mobile */
+}
+
+.device-price-on-card {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #282828da;
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid #eee;
+    display: block;
+    text-align: center;
+    padding-bottom: 10px;
+    background-color: #f8f8f8;
+    border-radius: 0 0 12px 12px;
+    margin-left: -1px;
+    margin-right: -1px;
+    margin-bottom: -1px;
+}
+
+.modal-body .price {
+    font-size: 1.5em;
+    font-weight: 800;
+    color: var(--accent-green);
+    margin-top: 20px;
+    text-align: center;
+}
+
+.device-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.device-image-slider {
+    width: 100%;
+    height: 180px;
+    /* Fixed height for image container in card */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.device-image-slider img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: scale-down;
+    display: block;
+    margin: auto;
+}
+
+.device-card .content {
+    padding: 10px 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-start;
+}
+
+.device-card h4 {
+    margin: 0;
+    font-size: 12px;
+    color: #0b3d91;
+    line-height: 1.4;
+    flex-grow: 1;
+    /* ستبقى flex-grow: 1; ولكن مع تحديد ارتفاع أقصى */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5px;
+    /* ** التعديلات الجديدة هنا لتثبيت ارتفاع العنوان ** */
+    height: 2.8em;
+    /* تحدد ارتفاع ثابت يكفي لسطرين (1.4em * 2) */
+    overflow: hidden;
+    /* إخفاء أي نص يتجاوز الارتفاع */
+    text-overflow: ellipsis;
+    /* إضافة "..." للنص المخفي */
+    display: -webkit-box;
+    /* لتمكين webkit-line-clamp */
+    -webkit-line-clamp: 2;
+    /* تحديد أقصى عدد أسطر (سطرين) */
+    -webkit-box-orient: vertical;
+    /* اتجاه الصندوق رأسي */
+    white-space: normal;
+    /* السماح بتجاوز الكلمة للسطر التالي */
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.hidden {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+}
+
+.modal:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+}
+
+.modal-content {
+    width: 90%;
+    max-width: 700px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal:not(.hidden) .modal-content {
+    transform: translateY(0);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 32px;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-modal:hover {
+    color: #0b3d91;
+}
+
+
+/* Styles for Modal Image Gallery */
+
+.modal-image-gallery {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.gallery-main-image {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+}
+
+.gallery-main-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.gallery-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0 10px;
+}
+
+.gallery-thumbnails .thumbnail {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-thumbnails .thumbnail:hover {
+    border-color: #a7ccf2;
+    transform: scale(1.05);
+}
+
+.gallery-thumbnails .thumbnail.active {
+    border-color: #0b3d91;
+    box-shadow: 0 0 0 3px #0b3d91, 0 2px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
+.modal-body h2 {
+    margin: 0 0 15px;
+    color: #0b3d91;
+    font-size: 26px;
+    text-align: center;
+}
+
+.modal-body h2 span {
+    font-size: 0.7em;
+    color: #777;
+}
+
+.modal-body p {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.modal-body .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #009688;
+    text-align: center;
+    background-color: #e0f2f1;
+    padding: 10px 20px;
+    border-radius: 25px;
+    display: inline-block;
+    margin: 15px auto 0 auto;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #0b3d91;
+    color: white;
+    margin-top: 50px;
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+/* Media Query for Tablets */
+
+@media (min-width: 768px) {
+    .device-section {
+        max-width: 1000px;
+        padding: 30px 25px 45px 25px;
+    }
+    .device-card {
+        height: 280px;
+    }
+    .device-image-slider {
+        height: 180px;
+    }
+    .gallery-main-image {
+        height: 350px;
+    }
+    .gallery-thumbnails .thumbnail {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+
+/* Media Query for Desktop */
+
+@media (min-width: 900px) {
+    .menu-toggle {
+        display: none;
+        /* إخفاء زر القائمة في وضع الديسكتوب */
+    }
+    .side-menu {
+        display: none;
+        /* إخفاء القائمة الجانبية في وضع الديسكتوب */
+    }
+    .header-content {
+        justify-content: space-between;
+        /* الحفاظ على توزيع العناصر على الأطراف */
+    }
+    .logo {
+        order: 2;
+        /* الشعار في المنتصف */
+        margin: auto;
+        text-align: center;
+    }
+    /* ترتيب عناصر نافبار الديسكتوب */
+    .main-nav.desktop-nav {
+        display: block;
+        /* إظهار نافبار الديسكتوب */
+        order: 1;
+        /* في RTL، القائمة الرئيسية على أقصى اليمين */
+        position: absolute;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+        box-shadow: none;
+        z-index: auto;
+        
+    }
+    .main-nav.desktop-nav ul {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    .main-nav.desktop-nav li {
+        margin: 0 15px;
+        position: relative;
+    }
+    .main-nav.desktop-nav a {
+        color: rgb(18, 5, 131);
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 17px;
+        padding: 5px 0;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+    .main-nav.desktop-nav a:hover {
+        color: #0a002e;
+    }
+    .main-nav.desktop-nav a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -3px;
+        right: 0;
+        background-color: #a7ccf2;
+        transition: width 0.3s ease-out;
+    }
+    .main-nav.desktop-nav a:hover::after {
+        width: 100%;
+        left: 0;
+    }
+    .main-nav.desktop-nav .has-sub {
+        padding-bottom: 5px;
+    }
+    .main-nav.desktop-nav .submenu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #0b3d91;
+        min-width: 180px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        border-radius: 8px;
+        padding: 10px 0;
+        list-style-type: none;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    }
+    .main-nav.desktop-nav .has-sub:hover .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .main-nav.desktop-nav .submenu li {
+        margin: 0;
+        border-bottom: none;
+    }
+    .main-nav.desktop-nav .submenu a {
+        padding: 10px 20px;
+        font-size: 15px;
+        white-space: nowrap;
+        color: white;
+    }
+    .main-nav.desktop-nav .submenu a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #a7ccf2;
+    }
+    .main-nav.desktop-nav .submenu a::after {
+        display: none;
+    }
+    /* ترتيب أيقونة السلة في وضع الديسكتوب */
+    .cart-icon-container {
+        order: 3;
+        /* في RTL، أيقونة السلة على أقصى اليسار */
+        position: absolute;
+        left: 20px;
+        transform: none;
+    }
+    .device-slider-container {
+        padding: 0 20px;
+    }
+    .slider-arrow {
+        display: flex;
+    }
+    /* تعديل اتجاه أسهم السلايدر ليتناسب مع RTL */
+    .left-arrow {
+        /* هذا هو السهم الذي يظهر على اليسار بصرياً في RTL */
+        left: 0;
+        right: auto;
+    }
+    .left-arrow i {
+        transform: scaleX(1);
+        /* اتجاه السهم الطبيعي (يشير لليسار) */
+    }
+    .right-arrow {
+        /* هذا هو السهم الذي يظهر على اليمين بصرياً في RTL */
+        right: 0;
+        left: auto;
+    }
+    .right-arrow i {
+        transform: scaleX(-1);
+        /* عكس اتجاه السهم ليناسب RTL (يشير لليمين) */
+    }
+    .device-card {
+        flex: 0 0 calc(25% - 20px);
+        height: 280px;
+    }
+    .device-image-slider {
+        height: 180px;
+    }
+    .gallery-main-image {
+        height: 400px;
+    }
+    .gallery-thumbnails .thumbnail {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+
+/* Media Query for VERY LARGE SCREENS */
+
+@media (min-width: 1025px) {
+    .header-content {
+        max-width: 1400px;
+    }
+    .main-nav.desktop-nav li {
+        margin: 0 25px;
+    }
+    .logo img {
+        height: 70px;
+    }
+    .device-section {
+        max-width: 1300px;
+        padding: 35px 30px 50px 30px;
+    }
+    .device-section h3 {
+        font-size: 30px;
+        margin-bottom: 35px;
+    }
+    .device-card {
+        flex: 0 0 calc(20% - 20px);
+        height: 280px;
+    }
+    .device-image-slider {
+        height: 180px;
+    }
+    .modal-content {
+        max-width: 900px;
+        padding: 40px;
+    }
+    .modal-body h2 {
+        font-size: 32px;
+    }
+    .modal-body p {
+        font-size: 18px;
+    }
+    .modal-body .price {
+        font-size: 20px;
+    }
+    .slider-arrow {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+}
+
+
+/* ملف icu.css - إضافة ستايلات جديدة لناف بار الأجهزة */
+
+.device-nav-links {
+    background-color: #f7faff;
+    padding: 10px 0;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #e0ecff;
+    position: sticky;
+    top: 85px;
+    z-index: 1040;
+    overflow-x: auto;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.device-nav-links::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-links-container {
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.nav-link-item {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 0 5px;
+    color: #0b3d91;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.nav-link-item:hover {
+    background-color: #0b3d91;
+    color: white;
+    transform: translateY(-2px);
+}
+
+
+/* Smooth scroll for the entire page */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Media Queries for responsiveness */
+
+@media (max-width: 767px) {
+    .device-nav-links {
+        top: 75px;
+        justify-content: flex-start;
+    }
+    .nav-links-container {
+        justify-content: flex-start;
+    }
+    .nav-link-item {
+        font-size: 14px;
+        padding: 7px 12px;
+        margin: 0 4px;
+    }
+}
+
+@media (min-width: 900px) {
+    .device-nav-links {
+        top: 85px;
+    }
+}
+
+
+/* ملف icu.css - إضافة ستايلات زر العودة للأعلى */
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    /* ليكون على اليسار في الوضع الافتراضي LTR */
+    background-color: #0b3d91;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+
+/* في حالة الـ RTL (إذا كان `direction: rtl;` مطبقًا على `body` أو `html`) */
+
+body[dir="rtl"] .back-to-top,
+html[dir="rtl"] .back-to-top {
+    left: auto;
+    /* إلغاء خاصية left */
+    right: 20px;
+    /* وضعه على اليمين بدلاً من اليسار في RTL */
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: #0d46b3;
+    transform: translateY(-5px);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* ملف icu.css - ستايلات سلة المشتريات ورسائل التنبيه */
+
+
+/* ستايل زر "أضف للسلة" */
+
+.add-to-cart-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    width: 50%;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.add-to-cart-btn:active {
+    transform: translateY(0);
+}
+
+
+/* سلة المشتريات الجانبية - تم تصغير عرضها */
+
+.side-cart {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    /* مخفية في البداية على اليسار - تم تصغيرها */
+    right: auto;
+    width: 250px;
+    /* تم تصغير العرض */
+    height: 100%;
+    background-color: #f8f8f8;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    transition: left 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+
+/* في حالة فتح السلة، تتحرك إلى 0 من اليسار */
+
+.side-cart.open {
+    left: 0;
+}
+
+
+/* التعامل مع LTR: في LTR تفتح من اليمين */
+
+body[dir="ltr"] .side-cart,
+html[dir="ltr"] .side-cart {
+    left: auto;
+    /* إلغاء left */
+    right: -280px;
+    /* مخفية في البداية على اليمين - تم تصغيرها */
+    transition: right 0.3s ease-out;
+    /* انتقال لل right */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    /* ظل لليسار */
+}
+
+body[dir="ltr"] .side-cart.open,
+html[dir="ltr"] .side-cart.open {
+    right: 0;
+    /* عند الفتح في LTR، تتحرك إلى 0 من اليمين */
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #000;
+}
+
+.cart-header h2 {
+    margin: 0;
+    color: #0b3d91;
+    font-size: 24px;
+}
+
+.close-cart-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #555;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.close-cart-btn:hover {
+    color: #e74c3c;
+}
+
+.cart-items-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.empty-cart-message {
+    text-align: center;
+    color: #777;
+    margin-top: 50px;
+    font-size: 18px;
+}
+
+
+/* ****** التعديلات الجديدة هنا ****** */
+
+.cart-item {
+    display: flex;
+    flex-wrap: wrap;
+    /* للسماح للعناصر بالنزول لسطر جديد */
+    align-items: flex-start;
+    /* تبدأ العناصر من الأعلى */
+    gap: 10px;
+    padding: 10px 0 20px 0;
+    border-bottom: 1px solid #ccc;
+    /* خط فاصل خفيف تحت كل منتج */
+    margin-bottom: 10px;
+    position: relative;
+    /* لتحديد موضع الأزرار داخلها */
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+    /* إزالة الخط الفاصل من آخر عنصر */
+    margin-bottom: 0;
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    flex-shrink: 0;
+    /* منع الصورة من الانكماش */
+}
+
+.cart-item-details {
+    flex-grow: 1;
+    min-width: 100px;
+    /* لضمان ألا ينكمش النص أكثر من اللازم */
+    text-align: right;
+    /* محاذاة النص لليمين في RTL */
+}
+
+.cart-item-details h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.cart-item-details p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+
+/* حاوية أزرار تعديل الكمية */
+
+.cart-item-controls {
+    display: flex;
+    justify-content: center;
+    /* توسيط الأزرار تحت المنتج */
+    align-items: center;
+    width: 100%;
+    /* تأخذ عرض العنصر الأب كاملاً */
+    margin-top: 10px;
+    /* مسافة من فوق النص */
+    padding-top: 8px;
+    /* مسافة داخلية من الأعلى */
+    border-top: 1px dotted #e0e0e0;
+    /* خط فاصل خفيف فوق الأزرار */
+    flex-wrap: wrap;
+    /* تسمح للعناصر بالنزول لسطر جديد إذا ضاقت المساحة */
+    gap: 8px;
+    /* مسافة بين الأزرار */
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cart-item-actions button {
+    background-color: #0b3d91;
+    color: white;
+    border: none;
+    width: 28px;
+    /* حجم أكبر قليلاً */
+    height: 28px;
+    /* حجم أكبر قليلاً */
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 18px;
+    /* حجم أيقونة أكبر قليلاً */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.cart-item-actions button:hover {
+    background-color: #0d46b3;
+}
+
+.cart-item-actions span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    min-width: 25px;
+    /* مساحة أكبر للرقم */
+    text-align: center;
+}
+
+
+/* زر حذف المنتج - تم تصغيره */
+
+.remove-item-btn {
+    background-color: #dc3545 !important;
+    padding: 5px 10px !important;
+    /* تصغير الـ padding */
+    border-radius: 5px;
+    font-size: 15px;
+    width: auto;
+    /* يجعل العرض تلقائي بناءً على المحتوى */
+    flex-grow: 0;
+    /* يمنع الزر من النمو لملء المساحة */
+    margin-right: 0;
+    /* إزالة أي margin-right سابق */
+}
+
+.remove-item-btn:hover {
+    background-color: #c82333 !important;
+}
+
+
+/* ****** نهاية التعديلات الجديدة ****** */
+
+.cart-summary {
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0b3d91;
+}
+
+.cart-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cart-actions button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-clear-cart {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-clear-cart:hover {
+    background-color: #5a6268;
+}
+
+.btn-checkout {
+    background-color: #0b3d91;
+    color: white;
+}
+
+.btn-checkout:hover {
+    background-color: #0d46b3;
+}
+
+
+/* رسائل التنبيه (Toast Messages) */
+
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    /* التغييرات الرئيسية هنا لجعله في المنتصف أفقيًا */
+    left: 50%;
+    /* ضع الحافة اليسرى للحاوية في منتصف الشاشة */
+    transform: translateX(-50%);
+    /* حرك الحاوية لليسار بنصف عرضها الخاص لتوسيطها */
+    right: auto;
+    /* تأكد من إلغاء أي right قديم */
+    /* ----------------------------------------------- */
+    z-index: 2500;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    /* لتوسيط التوستات الفردية داخل الحاوية */
+}
+
+body[dir="ltr"] .toast-container,
+html[dir="ltr"] .toast-container {
+    right: auto;
+    /* إلغاء right */
+    left: 20px;
+    /* في LTR، تظهر التوست على اليسار */
+}
+
+.toast {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    min-width: 250px;
+    text-align: center;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.success {
+    background-color: rgba(40, 167, 69, 0.9);
+}
+
+.toast.danger {
+    background-color: #cd2b22;
+}
+
+.toast.warning {
+    background-color: rgba(255, 193, 7, 0.9);
+    color: #333;
+}
+
+
+/* تعديل عرض أزرار السلايدر في Device Card */
+
+.device-slider-container .slider-arrow {
+    background-color: rgba(11, 61, 145, 0.8);
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+}
+
+.device-slider-container .slider-arrow:hover {
+    background-color: rgba(13, 70, 179, 0.9);
+}
+
+
+/* لضمان ظهور زر أضف للسلة بشكل جيد */
+
+.device-card .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+.device-card .content h4,
+.device-card .content p {
+    margin-bottom: 5px;
+}
+
+.device-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+/* قواعد CSS لضبط الترتيب بناءً على اتجاه الصفحة (LTR/RTL) */
+
+
+/* هذه القواعد تضمن التبديل الصحيح لمواقع الأيقونات والقائمة في الهيدر */
+
+
+/* للاجهزة المحمولة والتابلت (أقل من 900px) */
+
+@media (max-width: 899px) {
+    /* الوضع الافتراضي RTL (direction: rtl;) */
+    .menu-toggle {
+        order: 1;
+        /* زر القائمة على اليمين في RTL */
+    }
+    .cart-icon-container {
+        order: 3;
+        /* أيقونة السلة على اليسار في RTL */
+    }
+    /* في حالة LTR (إذا تم تغيير direction: ltr; على body أو html) */
+    body[dir="ltr"] .menu-toggle,
+    html[dir="ltr"] .menu-toggle {
+        order: 3;
+        /* زر القائمة على اليمين في LTR */
+    }
+    body[dir="ltr"] .cart-icon-container,
+    html[dir="ltr"] .cart-icon-container {
+        order: 1;
+        /* أيقونة السلة على اليسار في LTR */
+    }
+    /* Media Queries for cart on smaller screens */
+    .side-cart {
+        width: 100%;
+        /* السلة تأخذ عرض الشاشة بالكامل */
+        left: -100%;
+        /* تخفيها بالكامل */
+    }
+    .side-cart.open {
+        left: 0;
+    }
+    /* For LTR */
+    body[dir="ltr"] .side-cart {
+        right: -100%;
+        left: auto;
+    }
+    body[dir="ltr"] .side-cart.open {
+        right: 0;
+    }
+    .cart-item-controls {
+        justify-content: space-around;
+        /* توزيع الأزرار بالتساوي */
+    }
+    .cart-item-actions {
+        flex-grow: 1;
+        /* للسماح لها بأخذ مساحة أكبر */
+        justify-content: center;
+    }
+    /* هنا لا نحتاج لـ flex-grow: 1; لزر الحذف في الموبايل لكي لا يأخذ العرض كله */
+    .remove-item-btn {
+        margin-right: 0;
+        /* إزالة المسافة الإضافية */
+        /* لا نضع flex-grow: 1 هنا */
+    }
+}
+
+
+/* لأجهزة سطح المكتب (أكبر من 900px) */
+
+@media (min-width: 900px) {
+    /* الوضع الافتراضي RTL (direction: rtl;) */
+    .main-nav.desktop-nav {
+        order: 1;
+        /* القائمة على اليمين في RTL */
+    }
+    .cart-icon-container {
+        order: 3;
+        /* أيقونة السلة على اليسار في RTL */
+    }
+    /* في حالة LTR (إذا تم تغيير direction: ltr; على body أو html) */
+    body[dir="ltr"] .main-nav.desktop-nav,
+    html[dir="ltr"] .main-nav.desktop-nav {
+        order: 3;
+        /* القائمة على اليمين في LTR */
+    }
+    body[dir="ltr"] .cart-icon-container,
+    html[dir="ltr"] .cart-icon-container {
+        order: 1;
+        /* أيقونة السلة على اليسار في LTR */
+    }
+    /* تعديل اتجاه أسهم السلايدر ليتناسب مع LTR أيضاً */
+    body[dir="ltr"] .slider-arrow.left-arrow {
+        left: 0;
+        right: auto;
+    }
+    body[dir="ltr"] .slider-arrow.right-arrow {
+        right: 0;
+        left: auto;
+    }
+    body[dir="ltr"] .slider-arrow.left-arrow i {
+        transform: scaleX(1);
+    }
+    body[dir="ltr"] .slider-arrow.right-arrow i {
+        transform: scaleX(1);
+    }
+}
