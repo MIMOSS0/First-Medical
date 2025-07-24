@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فيرست ميديكال - الأجهزة والمستلزمات الطبية</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+
+            <htm <div class="logo">
+                <a href="index.html"> <img src="img/0fb31ad8-d5b3-44e5-b5f8-e0eccc55c459_20250714_211401_0000.png"
+                        alt="First Medical Logo" /></a>
+        </div>
+
+        <div id="cartIconContainer" class="cart-icon-container">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cartItemCount" class="cart-item-count">0</span>
+        </div>
+
+        <nav class="main-nav desktop-nav">
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li class="has-sub">
+                    <a href="#">الأقسام <i class="fas fa-caret-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="sections/icu.html">الرعاية المركزة</a></li>
+                        <li><a href="sections/op.html">غرفة العمليات</a></li>
+                        <li><a href="sections/nicu.html">الحضّانات</a></li>
+                        <li><a href="sections/dental.html">الأسنان</a></li>
+                        <li><a href="sections/radiology.html">قسم الأشعة</a></li>
+                    </ul>
+                </li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="contact/index.html">تواصل معنا</a></li>
+            </ul>
+        </nav>
+        </div>
+
+        <nav class="side-menu" id="sideMenu">
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li class="has-sub">
+                    <a href="#">الأقسام <i class="fas fa-caret-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="sections/icu.html">الرعاية المركزة</a></li>
+                        <li><a href="sections/op.html">غرفة العمليات</a></li>
+                        <li><a href="sections/nicu.html">الحضّانات</a></li>
+                        <li><a href="sections/dental.html">الأسنان</a></li>
+                        <li><a href="sections/radiology.html">قسم الأشعة</a></li>
+                    </ul>
+                </li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+            </ul>
+        </nav>
+
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <div id="sideCart" class="side-cart">
+        <div class="cart-header">
+            <h2>سلة المشتريات</h2>
+            <button id="closeCartBtn" class="close-cart-btn">&times;</button>
+        </div>
+        <div id="cartItemsContainer" class="cart-items-container">
+            <p class="empty-cart-message">سلتك فارغة حاليًا.</p>
+        </div>
+        <div class="cart-summary">
+            <p>الإجمالي: <span id="cartTotalPrice">0.00 جنيه مصري</span></p>
+        </div>
+        <div class="cart-actions">
+            <button id="clearCartBtn" class="btn-clear-cart">حذف السلة</button>
+            <button id="checkoutBtn" class="btn-checkout">تأكيد الطلب</button>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container">
+    </div>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1><span class="highlight"></span></h1>
+                <p>شريكك الموثوق لتوفير أحدث الأجهزة والمستلزمات الطبية المتطورة.</p>
+                <div class="hero-buttons">
+                    <a href="#featured-products-section" class="btn btn-primary">اكتشف منتجاتنا</a>
+                    <a href="contact/index.html" class="btn btn-secondary">تواصل معنا</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-title category-slider-section" id="productsall">
+            <h2>استكشف أقسامنا</h2>
+            <div class="category-slider-container">
+                <div class="category-slider">
+                    <div class="category-item">
+                        <a href="sections/icu.html">
+                            <img src="img/web/icu.png" alt="الرعاية المركزة">
+                            <p>الرعاية المركزة</p>
+                        </a>
+                    </div>
+                    <div class="category-item">
+                        <a href="sections/op.html">
+                            <img src="img/web/op.png" alt="غرفة العمليات">
+                            <p>غرفة العمليات</p>
+                        </a>
+                    </div>
+                    <div class="category-item">
+                        <a href="sections/nicu.html">
+                            <img src="img/web/nicu.png" alt="الحضّانات">
+                            <p>الحضّانات</p>
+                        </a>
+                    </div>
+                    <div class="category-item">
+                        <a href="sections/dental.html">
+                            <img src="img/web/dental.png" alt="الأسنان">
+                            <p>الأسنان</p>
+                        </a>
+                    </div>
+                    <div class="category-item">
+                        <a href="sections/radio.html">
+                            <img src="img/web/radio.png" alt="قسم الأشعة">
+                            <p>قسم الأشعة</p>
+                        </a>
+                    </div>
+                    <div class="category-item">
+                        <a href="#">
+                            <img src="img/web/sh.png" alt="اسم القسم 6">
+                            <p>الغازات الطبية</p>
+                        </a>
+                    </div>
+                    <div class="category-item">
+                        <a href="#section-id-for-category-7">
+                            <img src="img/web/mo.jpg" alt="اسم القسم 7">
+                            <p>اثاث طبي</p>
+                        </a>
+                    </div>
+                    <div class="category-item">
+                        <a href="#section-id-for-category-8">
+                            <img src="img/web/ho.jpg" alt="اسم القسم 8">
+                            <p>تشطيب مستشفيات</p>
+                        </a>
+                    </div>
+                </div>
+                <button class="slider-arrow left-arrow"><i class="fas fa-chevron-right"></i></button>
+                <button class="slider-arrow right-arrow"><i class="fas fa-chevron-left"></i></button>
+            </div>
+        </section>
+
+        <section class="featured-products-section" id="featured-products-section">
+            <h2>منتجاتنا المميزة</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="img/الرعاية المركزة/img.jpeg" alt="جهاز تنفس صناعي">
+                    <h3>جهاز تنفس صناعي متطور</h3>
+                    <p>جهاز عالي الدقة يضمن أفضل رعاية للمرضى في الرعاية المركزة.</p>
+                    <span class="price">15,000 جنيه مصري</span>
+                    <button class="add-to-cart-btn" data-product-id="icu-ventilator"
+                        data-product-name-ar="جهاز تنفس صناعي متطور" data-product-name-en="Advanced Ventilator"
+                        data-product-price="15000" data-product-image="img/product1.jpg"
+                        data-product-desc-ar="جهاز عالي الدقة يضمن أفضل رعاية للمرضى في الرعاية المركزة."
+                        data-product-desc-en="High-precision device ensuring optimal patient care in ICU.">
+                        <i class="fas fa-cart-plus"></i> أضف للسلة
+                    </button>
+                </div>
+                <div class="product-card">
+                    <img src="img/الرعاية المركزة/img.jpeg" alt="مجموعة أدوات جراحية">
+                    <h3>مجموعة أدوات جراحية</h3>
+                    <p>أدوات جراحية معقمة عالية الجودة لغرف العمليات.</p>
+                    <span class="price">2,500 جنيه مصري</span>
+                    <button class="add-to-cart-btn" data-product-id="op-surgical-kit"
+                        data-product-name-ar="مجموعة أدوات جراحية" data-product-name-en="Surgical Instrument Kit"
+                        data-product-price="2500" data-product-image="img/product2.jpg"
+                        data-product-desc-ar="أدوات جراحية معقمة عالية الجودة لغرف العمليات."
+                        data-product-desc-en="High-quality sterile surgical instruments for operating rooms.">
+                        <i class="fas fa-cart-plus"></i> أضف للسلة
+                    </button>
+                </div>
+                <div class="product-card">
+                    <img src="img/الرعاية المركزة/img.jpeg" alt="جهاز قياس ضغط الدم">
+                    <h3>جهاز قياس ضغط الدم رقمي</h3>
+                    <p>دقيق وسهل الاستخدام، مثالي للمستشفيات والعيادات.</p>
+                    <span class="price">800 جنيه مصري</span>
+                    <button class="add-to-cart-btn" data-product-id="general-bp-monitor"
+                        data-product-name-ar="جهاز قياس ضغط الدم رقمي"
+                        data-product-name-en="Digital Blood Pressure Monitor" data-product-price="800"
+                        data-product-image="img/product3.jpg"
+                        data-product-desc-ar="دقيق وسهل الاستخدام، مثالي للمستشفيات والعيادات."
+                        data-product-desc-en="Accurate and easy to use, ideal for hospitals and clinics.">
+                        <i class="fas fa-cart-plus"></i> أضف للسلة
+                    </button>
+                </div>
+                <div class="product-card">
+                    <img src="img/الرعاية المركزة/img.jpeg" alt="سرير عناية مركزة">
+                    <h3>سرير عناية مركزة كهربائي</h3>
+                    <p>راحة وأمان للمريض، مع تحكم كهربائي كامل.</p>
+                    <span class="price">12,000 جنيه مصري</span>
+                    <button class="add-to-cart-btn" data-product-id="icu-electric-bed"
+                        data-product-name-ar="سرير عناية مركزة كهربائي" data-product-name-en="Electric ICU Bed"
+                        data-product-price="12000" data-product-image="img/product4.jpg"
+                        data-product-desc-ar="راحة وأمان للمريض، مع تحكم كهربائي كامل."
+                        data-product-desc-en="Comfort and safety for the patient, with full electric control.">
+                        <i class="fas fa-cart-plus"></i> أضف للسلة
+                    </button>
+                </div>
+                <div class="product-card">
+                    <img src="img/الرعاية المركزة/img.jpeg" alt="مونيتور العلامات الحيوية">
+                    <h3>مونيتور العلامات الحيوية</h3>
+                    <p>جهاز مراقبة شامل لعلامات المريض الحيوية بدقة عالية.</p>
+                    <span class="price">9,500 جنيه مصري</span>
+                    <button class="add-to-cart-btn" data-product-id="icu-vital-monitor"
+                        data-product-name-ar="مونيتور العلامات الحيوية" data-product-name-en="Vital Signs Monitor"
+                        data-product-price="9500" data-product-image="img/product5.jpg"
+                        data-product-desc-ar="جهاز مراقبة شامل لعلامات المريض الحيوية بدقة عالية."
+                        data-product-desc-en="Comprehensive monitoring device for patient vital signs with high accuracy.">
+                        <i class="fas fa-cart-plus"></i> أضف للسلة
+                    </button>
+                </div>
+                <div class="product-card">
+                    <img src="img/الرعاية المركزة/img.jpeg" alt="جهاز تعقيم بالبخار">
+                    <h3>جهاز تعقيم بالبخار</h3>
+                    <p>لتعقيم الأدوات والمعدات الطبية بكفاءة عالية.</p>
+                    <span class="price">7,000 جنيه مصري</span>
+                    <button class="add-to-cart-btn" data-product-id="op-steam-sterilizer"
+                        data-product-name-ar="جهاز تعقيم بالبخار" data-product-name-en="Steam Sterilizer"
+                        data-product-price="7000" data-product-image="img/product6.jpg"
+                        data-product-desc-ar="لتعقيم الأدوات والمعدات الطبية بكفاءة عالية."
+                        data-product-desc-en="For efficient sterilization of medical instruments and equipment.">
+                        <i class="fas fa-cart-plus"></i> أضف للسلة
+                    </button>
+                </div>
+            </div>
+            <div class="view-all-button-container">
+                <a href="#productsall" class="btn btn-outline-primary">عرض كل المنتجات <i
+                        class="fas fa-arrow-left"></i></a>
+            </div>
+        </section>
+
+        <section class="about-us-mini" id="about">
+            <div class="about-content">
+                <h2>من نحن</h2>
+                <p>
+                    <b>فيرست ميديكال</b> شركه متخصصه في التجهيزات الطبيه الشامله جميع الاقسام وصيانه الاجهزه الطبيه
+                    والمعايرة ، سابقه اعمال بجميع محافظات مصر
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7EtFXnnlmrpGhTStYi6B3RxLf1J7O7QL2MwwYkGQUC_gefTvwfwt3EHhR&s=10"
+                    alt="فريق فيرست ميديكال">
+            </div>
+        </section>
+
+
+
+        <section class="contact-cta">
+            <div class="cta-content">
+                <h2>هل لديك استفسار؟</h2>
+                <p>فريقنا جاهز للإجابة على جميع استفساراتكم ومساعدتكم في اختيار الأنسب لاحتياجاتكم.</p>
+                <a href="contact/index.html" class="btn btn-primary">تواصل معنا الآن</a>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="device-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 فيرست ميديكال - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+
+    <div class="floating-contact-btn">
+        <button id="mainContactBtn" class="main-btn">
+            <i class="fa-solid fa-headset"></i> </button>
+        <div class="contact-options">
+            <a href="tel:01024400293" class="option-btn phone">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="mailto:YOUR_EMAIL_ADDRESS" class="option-btn email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.facebook.com/share/19Rqb3yg7p/" target="_blank" class="option-btn facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://wa.me/+201009016314" target="_blank" class="option-btn whatsapp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </div>
+
+    <script defer src="script.js"></script>
+</body>
+
+</html>

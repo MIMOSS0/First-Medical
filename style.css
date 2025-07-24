@@ -1,0 +1,2145 @@
+/* ملف: style.css (لصفحة index.html - تم دمج icu.css بالكامل) */
+
+
+/* --- Base & General Styles --- */
+
+body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0ecff;
+    direction: rtl;
+    /* هذا مهم جداً لتحديد الاتجاه الافتراضي للموقع RTL */
+    overflow-x: hidden;
+    /* لمنع ظهور شريط التمرير الأفقي غير المرغوب فيه */
+}
+
+body.no-scroll {
+    overflow: hidden;
+    /* لمنع التمرير عندما تكون القائمة الجانبية أو السلة مفتوحة */
+}
+
+:root {
+    --primary-color: #0b3d91;
+    /* أزرق داكن */
+    --secondary-color: #009688;
+    /* أخضر (ل accent) */
+    --accent-blue: #0b3d91;
+    --accent-green: #009688;
+    --text-dark: #333;
+    --text-light: #555;
+    --bg-light: #f7faff;
+    --bg-blue-light: #e0ecff;
+}
+
+
+/* --- Header Styles --- */
+
+.main-header {
+    background-color: #E0ECFF;
+    color: white;
+    padding: 5px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1050;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 20px;
+}
+
+.menu-toggle {
+    background: transparent;
+    color: #0b3d91;
+    font-size: 28px;
+    border: none;
+    cursor: pointer;
+    z-index: 1101;
+    display: block;
+    /* Show on mobile/tablet */
+    padding: 5px;
+    transition: transform 0.3s ease;
+    order: 1;
+    /* In RTL, this places it on the far right */
+}
+
+.menu-toggle:hover {
+    color: #1a50a7;
+}
+
+.logo {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    order: 2;
+}
+
+.logo img {
+    height: 70px;
+}
+
+
+/* --- Cart Icon Container (unified from icu.css) --- */
+
+.cart-icon-container {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #0B3D91;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 3;
+    /* In RTL, this places it on the far left */
+}
+
+
+/* Red Dot (Item Count) - unified from icu.css */
+
+.cart-item-count {
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    /* In RTL, appears to the left of the icon */
+    background-color: #e74c3c;
+    color: white;
+    font-size: 11px;
+    border-radius: 50%;
+    padding: 5px 7px;
+    min-width: 18px;
+    min-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+
+/* Rule for LTR (if site ever changes direction) */
+
+body[dir="ltr"] .cart-item-count,
+html[dir="ltr"] .cart-item-count {
+    left: auto;
+    right: -6px;
+    /* Place on the right in LTR */
+}
+
+
+/* Hide main nav on desktop by default for mobile/tablet */
+
+.main-nav.desktop-nav {
+    display: none;
+}
+
+
+/* --- Side Menu (unified from icu.css) --- */
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    /* Hidden initially to the left (in RTL context) */
+    left: auto;
+    width: 200px;
+    height: 100vh;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    transition: right 0.3s ease-in-out;
+    /* Transition for RTL open */
+    z-index: 1100;
+    list-style-type: none;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+    /* Shadow for opening from left */
+}
+
+.side-menu.open {
+    right: 0;
+    /* Moves to 0 from the left when open */
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu li {
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.side-menu li:last-child {
+    border-bottom: none;
+}
+
+.side-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    display: block;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.side-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.side-menu .has-sub .submenu {
+    list-style-type: none;
+    padding-right: 15px;
+    /* Keep padding-right for RTL indentation */
+    background-color: rgba(0, 16, 163, 0.7);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-in-out;
+}
+
+.side-menu .has-sub.active .submenu {
+    max-height: 300px;
+    /* Adjust as needed for submenu height */
+}
+
+.side-menu .submenu li {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.side-menu .submenu li:last-child {
+    border-bottom: none;
+}
+
+.side-menu .submenu a {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.side-menu .submenu a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* --- Side Cart Styles (Copied directly from icu.css - exact match) --- */
+
+.side-cart {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    /* مخفية في البداية على اليسار - تم تصغيرها */
+    right: auto;
+    width: 250px;
+    /* تم تصغير العرض */
+    height: 100%;
+    background-color: #f8f8f8;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    transition: left 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+
+/* في حالة فتح السلة، تتحرك إلى 0 من اليسار */
+
+.side-cart.open {
+    left: 0;
+}
+
+
+/* التعامل مع LTR: في LTR تفتح من اليمين */
+
+body[dir="ltr"] .side-cart,
+html[dir="ltr"] .side-cart {
+    left: auto;
+    /* إلغاء left */
+    right: -280px;
+    /* مخفية في البداية على اليمين - تم تصغيرها */
+    transition: right 0.3s ease-out;
+    /* انتقال لل right */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    /* ظل لليسار */
+}
+
+body[dir="ltr"] .side-cart.open,
+html[dir="ltr"] .side-cart.open {
+    right: 0;
+    /* عند الفتح في LTR، تتحرك إلى 0 من اليمين */
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #000;
+}
+
+.cart-header h2 {
+    margin: 0;
+    color: #0b3d91;
+    font-size: 24px;
+}
+
+.close-cart-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #555;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.close-cart-btn:hover {
+    color: #e74c3c;
+}
+
+.cart-items-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.empty-cart-message {
+    text-align: center;
+    color: #777;
+    margin-top: 50px;
+    font-size: 18px;
+}
+
+.cart-item {
+    display: flex;
+    flex-wrap: wrap;
+    /* للسماح للعناصر بالنزول لسطر جديد */
+    align-items: flex-start;
+    /* تبدأ العناصر من الأعلى */
+    gap: 10px;
+    padding: 10px 0 20px 0;
+    border-bottom: 1px solid #ccc;
+    /* خط فاصل خفيف تحت كل منتج */
+    margin-bottom: 10px;
+    position: relative;
+    /* لتحديد موضع الأزرار داخلها */
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+    /* إزالة الخط الفاصل من آخر عنصر */
+    margin-bottom: 0;
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    flex-shrink: 0;
+    /* منع الصورة من الانكماش */
+}
+
+.cart-item-details {
+    flex-grow: 1;
+    min-width: 100px;
+    /* لضمان ألا ينكمش النص أكثر من اللازم */
+    text-align: right;
+    /* محاذاة النص لليمين في RTL */
+}
+
+.cart-item-details h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.cart-item-details p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+
+/* حاوية أزرار تعديل الكمية */
+
+.cart-item-controls {
+    display: flex;
+    justify-content: center;
+    /* توسيط الأزرار تحت المنتج */
+    align-items: center;
+    width: 100%;
+    /* تأخذ عرض العنصر الأب كاملاً */
+    margin-top: 10px;
+    /* مسافة من فوق النص */
+    padding-top: 8px;
+    /* مسافة داخلية من الأعلى */
+    border-top: 1px dotted #e0e0e0;
+    /* خط فاصل خفيف فوق الأزرار */
+    flex-wrap: wrap;
+    /* تسمح للعناصر بالنزول لسطر جديد إذا ضاقت المساحة */
+    gap: 8px;
+    /* مسافة بين الأزرار */
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cart-item-actions button {
+    background-color: #0b3d91;
+    color: white;
+    border: none;
+    width: 28px;
+    /* حجم أكبر قليلاً */
+    height: 28px;
+    /* حجم أكبر قليلاً */
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 18px;
+    /* حجم أيقونة أكبر قليلاً */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.cart-item-actions button:hover {
+    background-color: #0d46b3;
+}
+
+.cart-item-actions span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    min-width: 25px;
+    /* مساحة أكبر للرقم */
+    text-align: center;
+}
+
+
+/* زر حذف المنتج - تم تصغيره */
+
+.remove-item-btn {
+    background-color: #dc3545 !important;
+    padding: 5px 10px !important;
+    /* تصغير الـ padding */
+    border-radius: 5px;
+    font-size: 15px;
+    width: auto;
+    /* يجعل العرض تلقائي بناءً على المحتوى */
+    flex-grow: 0;
+    /* يمنع الزر من النمو لملء المساحة */
+    margin-right: 0;
+    /* إزالة أي margin-right سابق */
+}
+
+.remove-item-btn:hover {
+    background-color: #c82333 !important;
+}
+
+.cart-summary {
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0b3d91;
+}
+
+.cart-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cart-actions button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-clear-cart {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-clear-cart:hover {
+    background-color: #5a6268;
+}
+
+.btn-checkout {
+    background-color: #0b3d91;
+    color: white;
+}
+
+.btn-checkout:hover {
+    background-color: #0d46b3;
+}
+
+
+/* --- Toast Notification (Copied directly from icu.css - exact match) --- */
+
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    /* التغييرات الرئيسية هنا لجعله في المنتصف أفقيًا */
+    left: 50%;
+    /* ضع الحافة اليسرى للحاوية في منتصف الشاشة */
+    transform: translateX(-50%);
+    /* حرك الحاوية لليسار بنصف عرضها الخاص لتوسيطها */
+    right: auto;
+    /* تأكد من إلغاء أي right قديم */
+    /* ----------------------------------------------- */
+    z-index: 2500;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    /* لتوسيط التوستات الفردية داخل الحاوية */
+}
+
+body[dir="ltr"] .toast-container,
+html[dir="ltr"] .toast-container {
+    right: auto;
+    /* إلغاء right */
+    left: 20px;
+    /* في LTR، تظهر التوست على اليسار */
+}
+
+.toast {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    min-width: 250px;
+    text-align: center;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.success {
+    background-color: rgba(40, 167, 69, 0.9);
+}
+
+.toast.danger {
+    background-color: #cd2b22;
+}
+
+.toast.warning {
+    background-color: rgba(255, 193, 7, 0.9);
+    color: #333;
+}
+
+
+/* --- Hero Section --- */
+
+.hero-section {
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5le8xK2e8Ibnw3nZzF1MTGHoTsaz4DmlXObruHVxuIVnO5I0ne6TxLKeq&s=10') no-repeat center center/cover rgb(0, 0, 0, 0.1);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+h1 span::after {
+    content: "|";
+    /* Initial cursor */
+    animation-name: typing;
+    animation-duration: 10s;
+    /* Total duration */
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    /* Makes the typing effect sharp */
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #6a8dff;
+    /* لون النص نفسه (داخلي) */
+    /* لإضافة تحديد (outline) حول النص - لون واحد فقط */
+    -webkit-text-stroke: 2px #000080;
+    /* سمك 1 بكسل، لون أزرق غامق */
+    text-stroke: 2px #000080;
+    /* لضمان التوافقية */
+}
+
+@keyframes typing {
+    /* --- "First Medical" (0% to 50%) --- */
+    /* Typing "First Medical" - Cursor before the character */
+    0% {
+        content: "|";
+    }
+    1% {
+        content: "|F";
+    }
+    2% {
+        content: "|Fi";
+    }
+    3% {
+        content: "|Fir";
+    }
+    4% {
+        content: "|Firs";
+    }
+    5% {
+        content: "|First";
+    }
+    6% {
+        content: "|First ";
+    }
+    7% {
+        content: "|First M";
+    }
+    8% {
+        content: "|First Me";
+    }
+    9% {
+        content: "|First Med";
+    }
+    10% {
+        content: "|First Medi";
+    }
+    11% {
+        content: "|First Medic";
+    }
+    12% {
+        content: "|First Medica";
+    }
+    13% {
+        content: "|First Medical";
+    }
+    /* Pause at "First Medical" - Cursor still before the word (or at the end, depending on preference. Keeping it before for consistency) */
+    14% {
+        content: "|First Medical";
+    }
+    25% {
+        content: "|First Medical";
+    }
+    /* Deleting "First Medical" - Cursor still before the shrinking word */
+    26% {
+        content: "|First Medica";
+    }
+    27% {
+        content: "|First Medic";
+    }
+    28% {
+        content: "|First Medi";
+    }
+    29% {
+        content: "|First Med";
+    }
+    30% {
+        content: "|First Me";
+    }
+    31% {
+        content: "|First M";
+    }
+    32% {
+        content: "|First ";
+    }
+    33% {
+        content: "|First";
+    }
+    34% {
+        content: "|Firs";
+    }
+    35% {
+        content: "|Fir";
+    }
+    36% {
+        content: "|Fi";
+    }
+    37% {
+        content: "|F";
+    }
+    38% {
+        content: "|";
+    }
+    /* Fully deleted, only cursor remains */
+    /* --- "Medical Devices" (50% to 100%) --- */
+    /* Typing "Medical Devices" - Cursor before the character */
+    39% {
+        content: "|M";
+    }
+    40% {
+        content: "|Me";
+    }
+    41% {
+        content: "|Med";
+    }
+    42% {
+        content: "|Medi";
+    }
+    43% {
+        content: "|Medic";
+    }
+    44% {
+        content: "|Medica";
+    }
+    45% {
+        content: "|Medical";
+    }
+    46% {
+        content: "|Medical ";
+    }
+    47% {
+        content: "|Medical D";
+    }
+    48% {
+        content: "|Medical De";
+    }
+    49% {
+        content: "|Medical Dev";
+    }
+    50% {
+        content: "|Medical Devi";
+    }
+    51% {
+        content: "|Medical Devic";
+    }
+    52% {
+        content: "|Medical Device";
+    }
+    53% {
+        content: "|Medical Devices";
+    }
+    /* Pause at "Medical Devices" - Cursor still before the word */
+    54% {
+        content: "|Medical Devices";
+    }
+    75% {
+        content: "|Medical Devices";
+    }
+    /* Deleting "Medical Devices" - Cursor still before the shrinking word */
+    76% {
+        content: "|Medical Device";
+    }
+    77% {
+        content: "|Medical Devic";
+    }
+    78% {
+        content: "|Medical Devi";
+    }
+    79% {
+        content: "|Medical Dev";
+    }
+    80% {
+        content: "|Medical De";
+    }
+    81% {
+        content: "|Medical D";
+    }
+    82% {
+        content: "|Medical ";
+    }
+    83% {
+        content: "|Medical";
+    }
+    84% {
+        content: "|Medica";
+    }
+    85% {
+        content: "|Medic";
+    }
+    86% {
+        content: "|Medi";
+    }
+    87% {
+        content: "|Med";
+    }
+    88% {
+        content: "|Me";
+    }
+    89% {
+        content: "|M";
+    }
+    90% {
+        content: "|";
+    }
+    /* Fully deleted */
+    /* Small pause before looping - only cursor */
+    91%,
+    100% {
+        content: "|";
+    }
+}
+
+.hero-content .highlight {
+    color: var(--secondary-color);
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.hero-buttons .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #082d6b;
+    border-color: #082d6b;
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+
+/* --- Section Titles & Common Layout --- */
+
+.section-title {
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: inset 0 -2px 6px rgba(0, 0, 0, 0.15);
+    margin: 0;
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+    font-size: 20px;
+    margin-bottom: 30px;
+    /* Added margin-bottom for spacing */
+}
+
+.section-title h2 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+
+/* --- Category Slider Section --- */
+
+.category-slider-section {
+    margin-top: 30px;
+    padding-bottom: 50px;
+}
+
+.category-slider-container {
+    position: relative;
+    padding: 0 20px;
+    /* Add padding for arrows not to overlap content */
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-slider {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 5px;
+    /* Padding inside slider for visual comfort */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.category-slider::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+.category-item {
+    flex: 0 0 120px;
+    /* Fixed width for each category item */
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 15px;
+}
+
+.category-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.category-item a {
+    text-decoration: none;
+    color: var(--text-dark);
+    display: block;
+}
+
+.category-item img {
+    width: 100px;
+    /* Fixed image size */
+    height: 100px;
+    object-fit: cover;
+    border-radius: 20px;
+    /* Circular images */
+    margin-bottom: 10px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.category-item p {
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+
+/* Slider Arrows (unified with icu.css) */
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(11, 61, 145, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    /* Always display, handled by JS if not needed */
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.slider-arrow:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+
+/* Adjustments for RTL arrow positioning based on icu.css behavior */
+
+.left-arrow {
+    /* This arrow is visually on the right in RTL */
+    right: 5px;
+    left: auto;
+}
+
+.right-arrow {
+    /* This arrow is visually on the left in RTL */
+    left: 5px;
+    right: auto;
+}
+
+
+/* Ensure arrows are inside the container */
+
+.category-slider-container .left-arrow {
+    right: 5px;
+}
+
+.category-slider-container .right-arrow {
+    left: 5px;
+}
+
+
+/* In LTR (if dir changes) */
+
+body[dir="ltr"] .left-arrow,
+html[dir="ltr"] .left-arrow {
+    right: auto;
+    left: 5px;
+}
+
+body[dir="ltr"] .right-arrow,
+html[dir="ltr"] .right-arrow {
+    left: auto;
+    right: 5px;
+}
+
+
+/* --- Featured Products Section --- */
+
+.featured-products-section {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 50px;
+}
+
+.featured-products-section h2 {
+    font-size: 32px;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.featured-products-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent-green);
+    border-radius: 2px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.product-card {
+    background-color: #fcfcfc;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+    padding-bottom: 15px;
+    cursor: pointer;
+    /* Makes the whole card clickable for modal */
+    display: flex;
+    /* Added for better content distribution */
+    flex-direction: column;
+    /* Added for better content distribution */
+    justify-content: space-between;
+    /* Added for better content distribution */
+    height: 100%;
+    /* Ensure cards are same height in a row */
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background-color: white;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.product-card h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin: 15px 10px 5px;
+    line-height: 1.4;
+    height: 2.8em;
+    /* Fixed height for 2 lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
+.product-card p {
+    font-size: 15px;
+    color: var(--text-light);
+    margin: 0 15px 15px;
+    height: 3.6em;
+    /* Fixed height for 3 lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
+.product-card .price {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--accent-green);
+    display: block;
+    margin-bottom: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    background-color: #f7f7f7;
+    margin-left: -1px;
+    margin-right: -1px;
+    order: 3;
+    /* Order of elements in flex column */
+}
+
+.product-card .add-to-cart-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 35%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    /* For icon and text alignment */
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    /* Space between price and button */
+    order: 4;
+    /* Order of elements in flex column */
+    text-align: center;
+}
+
+.product-card .add-to-cart-btn:hover {
+    background-color: #1a50a7;
+    transform: translateY(-2px);
+}
+
+.product-card .add-to-cart-btn i {
+    font-size: 18px;
+}
+
+.view-all-button-container {
+    margin-top: 40px;
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* --- About Us Mini Section --- */
+
+.about-us-mini {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 50px auto;
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.about-content {
+    text-align: center;
+    max-width: 800px;
+}
+
+.about-content h2 {
+    font-size: 32px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    font-size: 17px;
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- Contact Call to Action (CTA) --- */
+
+.contact-cta {
+    background: linear-gradient(to right, var(--primary-color), #1a50a7);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 12px;
+    max-width: 1200px;
+    margin: 50px auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cta-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.cta-content p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.cta-content .btn-primary {
+    background-color: var(--accent-green);
+    border-color: var(--accent-green);
+    padding: 15px 35px;
+    font-size: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.cta-content .btn-primary:hover {
+    background-color: #007a6f;
+    border-color: #007a6f;
+    transform: translateY(-4px);
+}
+
+
+/* --- Product Modal (Copied and unified from icu.css - exact match) --- */
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.hidden {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+    /* Make it completely gone when hidden */
+}
+
+.modal:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    /* Ensure it's flex when visible */
+}
+
+.modal-content {
+    width: 90%;
+    max-width: 700px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal:not(.hidden) .modal-content {
+    transform: translateY(0);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    /* In RTL, close button is on the left */
+    font-size: 32px;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-modal:hover {
+    color: var(--primary-color);
+}
+
+
+/* Styles for Modal Image Gallery (Copied from icu.css) */
+
+.modal-image-gallery {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.gallery-main-image {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+}
+
+.gallery-main-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.gallery-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0 10px;
+}
+
+.gallery-thumbnails .thumbnail {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-thumbnails .thumbnail:hover {
+    border-color: #a7ccf2;
+    transform: scale(1.05);
+}
+
+.gallery-thumbnails .thumbnail.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-color), 0 2px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
+.modal-body h2 {
+    margin: 0 0 15px;
+    color: var(--primary-color);
+    font-size: 26px;
+    text-align: center;
+}
+
+.modal-body h2 span {
+    font-size: 0.7em;
+    color: #777;
+}
+
+.modal-body p {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.modal-body .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--accent-green);
+    text-align: center;
+    background-color: #e0f2f1;
+    padding: 10px 20px;
+    border-radius: 25px;
+    display: inline-block;
+    margin: 15px auto 0 auto;
+}
+
+
+/* --- Footer --- */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    margin-top: 50px;
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* --- Back to Top Button (Unified from icu.css) --- */
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    /* In RTL, button is on the right */
+    background-color: var(--primary-color);
+    /* Changed to primary-color as per icu.css behavior */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    /* Matched icu.css */
+    height: 45px;
+    /* Matched icu.css */
+    font-size: 20px;
+    /* Matched icu.css */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    /* Matched icu.css */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    /* Matched icu.css */
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    /* Matched icu.css */
+}
+
+.back-to-top:hover {
+    background-color: #0d46b3;
+    /* Matched icu.css */
+    transform: translateY(-5px);
+    /* Matched icu.css */
+}
+
+
+/* --- Scrollbar Styling (Unified) --- */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+/* Smooth scroll for the entire page */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* --- Media Queries --- */
+
+
+/* Mobile & Tablet Specific Adjustments */
+
+@media (max-width: 899px) {
+    .hero-content h1 {
+        font-size: 36px;
+    }
+    .hero-content p {
+        font-size: 16px;
+    }
+    .hero-buttons .btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+    .main-nav.desktop-nav {
+        display: none;
+        /* Hide desktop nav on smaller screens */
+    }
+    /* Make sure arrows for category slider show up on mobile */
+    .category-slider-container .slider-arrow {
+        display: flex;
+    }
+    .about-us-mini {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-image {
+        width: 100%;
+    }
+    .products-grid {
+        grid-template-columns: 1fr;
+        /* Single column on small screens */
+    }
+    .testimonial-card {
+        padding: 20px;
+    }
+    .cta-content h2 {
+        font-size: 28px;
+    }
+    .cta-content p {
+        font-size: 17px;
+    }
+    .cta-content .btn-primary {
+        font-size: 18px;
+        padding: 12px 25px;
+    }
+    /* Side Cart specific for smaller screens from icu.css */
+    .side-cart {
+        width: 100%;
+        /* السلة تأخذ عرض الشاشة بالكامل */
+        left: -100%;
+        /* تخفيها بالكامل */
+    }
+    .side-cart.open {
+        left: 0;
+    }
+    /* For LTR */
+    body[dir="ltr"] .side-cart {
+        right: -100%;
+        left: auto;
+    }
+    body[dir="ltr"] .side-cart.open {
+        right: 0;
+    }
+    .cart-item-controls {
+        justify-content: space-around;
+        /* توزيع الأزرار بالتساوي */
+    }
+    .cart-item-actions {
+        flex-grow: 1;
+        /* للسماح لها بأخذ مساحة أكبر */
+        justify-content: center;
+    }
+    .remove-item-btn {
+        margin-right: 0;
+    }
+}
+
+
+/* Media Query for Tablets (Unified with icu.css) */
+
+@media (min-width: 768px) {
+    /* desktop-nav should remain hidden as per previous rule for smaller than 900px */
+    .modal-content {
+        padding: 40px;
+    }
+    .modal-body h2 {
+        font-size: 30px;
+    }
+    .modal-body p {
+        font-size: 17px;
+    }
+    .modal-body .price {
+        font-size: 20px;
+    }
+    .gallery-main-image {
+        height: 350px;
+    }
+    .gallery-thumbnails .thumbnail {
+        width: 80px;
+        height: 80px;
+    }
+    .about-us-mini {
+        flex-direction: row;
+        /* Layout side-by-side */
+        text-align: right;
+        /* Changed to right for RTL consistency */
+        align-items: flex-start;
+    }
+    .about-content {
+        flex: 1;
+        padding-right: 20px;
+        /* Adjusted padding for RTL */
+        padding-left: 0;
+    }
+    .about-image {
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+        /* Adjusted for RTL */
+    }
+}
+
+
+/* Media Query for Desktop (Unified with icu.css) */
+
+@media (min-width: 900px) {
+    .menu-toggle {
+        display: none;
+        /* Hide menu toggle on desktop */
+    }
+    .side-menu {
+        display: none;
+        /* Hide side menu on desktop */
+    }
+    .header-content {
+        justify-content: space-between;
+    }
+    .main-nav.desktop-nav {
+        display: block;
+        /* Show desktop nav */
+        order: 1;
+        /* In RTL, main nav is on the right */
+        position: absolute;
+        /* Static for normal flow */
+        top: 10px;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+        box-shadow: none;
+        z-index: auto;
+    }
+    .main-nav.desktop-nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .main-nav.desktop-nav li {
+        margin: 0 15px;
+        position: relative;
+    }
+    .main-nav.desktop-nav a {
+        color: var(--primary-color);
+        /* Changed to primary-color */
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 17px;
+        padding: 10px 0;
+        /* Adjusted padding */
+        transition: color 0.3s ease;
+        display: block;
+        position: relative;
+    }
+    .main-nav.desktop-nav a:hover {
+        color: #1a50a7;
+    }
+    .main-nav.desktop-nav a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -3px;
+        right: 0;
+        /* Starts from right for RTL */
+        background-color: var(--accent-green);
+        /* Changed to accent-green */
+        transition: width 0.3s ease-out;
+    }
+    .main-nav.desktop-nav a:hover::after {
+        width: 100%;
+        left: 0;
+        /* Expands to left for RTL */
+    }
+    body[dir="ltr"] .main-nav.desktop-nav a::after,
+    html[dir="ltr"] .main-nav.desktop-nav a::after {
+        right: auto;
+        left: 0;
+        /* Starts from left for LTR */
+    }
+    body[dir="ltr"] .main-nav.desktop-nav a:hover::after,
+    html[dir="ltr"] .main-nav.desktop-nav a:hover::after {
+        left: auto;
+        right: 0;
+        /* Expands to right for LTR */
+    }
+    .main-nav.desktop-nav .has-sub>a {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .main-nav.desktop-nav .submenu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        /* In RTL, submenu drops from the right */
+        background-color: var(--primary-color);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        min-width: 180px;
+        z-index: 1000;
+        display: none;
+        /* Hidden by default */
+        padding: 10px 0;
+        text-align: right;
+        /* Align text to the right in RTL */
+        opacity: 0;
+        /* For transition effect */
+        visibility: hidden;
+        /* For transition effect */
+        transform: translateY(10px);
+        /* For transition effect */
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    }
+    body[dir="ltr"] .main-nav.desktop-nav .submenu,
+    html[dir="ltr"] .main-nav.desktop-nav .submenu {
+        right: auto;
+        left: 0;
+        /* In LTR, submenu drops from the left */
+        text-align: left;
+    }
+    .main-nav.desktop-nav .has-sub:hover .submenu {
+        display: block;
+        /* Show on hover */
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .main-nav.desktop-nav .submenu li {
+        margin: 0;
+        border-bottom: none;
+    }
+    .main-nav.desktop-nav .submenu a {
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        white-space: nowrap;
+        /* Prevent breaking lines */
+    }
+    .main-nav.desktop-nav .submenu a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    .main-nav.desktop-nav .submenu a::after {
+        /* Hide underline for submenu items */
+        display: none;
+    }
+    .header-content .logo {
+        text-align: center;
+        order: 2;
+        margin: auto;
+    }
+    .header-content .cart-icon-container {
+        order: 3;
+        /* Cart icon remains on the left in RTL */
+        position: static;
+        /* Static for normal flow */
+        left: auto;
+    }
+    /* Category Slider arrows visible */
+    .category-slider-container .slider-arrow {
+        display: flex;
+    }
+    .left-arrow {
+        /* This arrow is visually on the right in RTL */
+        right: 5px;
+        left: auto;
+    }
+    .right-arrow {
+        /* This arrow is visually on the left in RTL */
+        left: 5px;
+        right: auto;
+    }
+    /* Product grid on desktop */
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columns on desktop */
+    }
+    .product-card .add-to-cart-btn {
+        padding: 10px 33%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 columns on larger desktops */
+    }
+}
+
+
+/* في ملف style.css الخاص بك */
+
+
+/* Floating Contact Button Container */
+
+
+/* Floating Contact Button Container */
+
+.floating-contact-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    /* أو left: 20px; لـ RTL */
+    z-index: 1000;
+}
+
+
+/* Main Button Style */
+
+.floating-contact-btn .main-btn {
+    background-color: #000;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 2s ease, background-color 2s ease;
+    position: relative;
+    z-index: 1002;
+}
+
+.floating-contact-btn .main-btn:hover {
+    background-color: #000641;
+}
+
+
+/* Contact Options Container - التعديلات هنا */
+
+.floating-contact-btn .contact-options {
+    position: absolute;
+    bottom: 0;
+    /* يبقيه في نفس مستوى الزر الرئيسي */
+    left: 50%;
+    /* لمحاذاة مركزها مع مركز الزر الرئيسي */
+    transform: translateX(-50%);
+    /* لضبط المحاذاة الأفقية تمامًا */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s ease-out, opacity 0.3s ease-out;
+    z-index: 1001;
+}
+
+
+/* When the container is 'open' */
+
+.floating-contact-btn.open .contact-options {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Individual Option Buttons - التعديلات هنا */
+
+.floating-contact-btn .option-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #eee;
+    opacity: 0;
+    transform: scale(0.8);
+    /* تبدأ صغيرة في مكانها ثم تكبر */
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.3s ease-out, background-color 0.3s ease;
+    position: absolute;
+    /* يجعل كل أيقونة مستقلة داخل contact-options */
+    left: 50%;
+    /* لمحاذاة مركز الأيقونة مع مركز الحاوية */
+    transform: translateX(-50%) scale(0.8);
+    /* ضبط المحاذاة الأفقية الأولي */
+    z-index: 1;
+}
+
+
+/* Specific Colors for Option Buttons */
+
+.floating-contact-btn .option-btn.whatsapp {
+    background-color: #25D366;
+}
+
+.floating-contact-btn .option-btn.facebook {
+    background-color: #1877F2;
+}
+
+.floating-contact-btn .option-btn.email {
+    background-color: #D44638;
+}
+
+.floating-contact-btn .option-btn.phone {
+    background-color: #6c757d;
+}
+
+
+/* When the container is 'open' - حرك كل أيقونة لمكانها النهائي وافعل الحركة المستمرة */
+
+.floating-contact-btn.open .option-btn {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    /* تعود لحجمها الطبيعي وتظل في المنتصف */
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+/* Apply staggered delays for each icon's initial appearance and final position */
+
+
+/* هنا سنعكس حساب الـ bottom لكي تكون أيقونة الهاتف (nth-child(1)) هي الأسفل */
+
+
+/* المسافة من أسفل الزر الرئيسي لأول أيقونة (الهاتف) = 15px */
+
+
+/* ارتفاع الزر الرئيسي = 45px */
+
+
+/* ارتفاع الأيقونة + المسافة بين الأيقونات = 45px + 10px = 55px */
+
+.floating-contact-btn.open .option-btn:nth-child(1) {
+    /* الهاتف - الأيقونة الأقرب للزر الرئيسي */
+    bottom: calc(45px + 15px);
+    transition-delay: 0.05s;
+    animation-name: floatAnimation1;
+    animation-delay: 0.05s;
+}
+
+.floating-contact-btn.open .option-btn:nth-child(2) {
+    /* الايميل - الثانية */
+    bottom: calc(45px + 15px + 55px);
+    transition-delay: 0.1s;
+    animation-name: floatAnimation2;
+    animation-delay: 0.1s;
+}
+
+.floating-contact-btn.open .option-btn:nth-child(3) {
+    /* الفيسبوك - الثالثة */
+    bottom: calc(45px + 15px + 55px * 2);
+    transition-delay: 0.15s;
+    animation-name: floatAnimation3;
+    animation-delay: 0.15s;
+}
+
+.floating-contact-btn.open .option-btn:nth-child(4) {
+    /* الواتساب - الرابعة والأبعد */
+    bottom: calc(45px + 15px + 55px * 3);
+    transition-delay: 0.2s;
+    animation-name: floatAnimation4;
+    animation-delay: 0.2s;
+}
+
+
+/* Rotate the main button icon when open */
+
+.floating-contact-btn.open .main-btn i {
+    transform: rotate(180deg);
+}
+
+
+/* For RTL Layout */
+
+html[dir="rtl"] .floating-contact-btn {
+    right: auto;
+    left: 20px;
+}
+
+html[dir="rtl"] .floating-contact-btn .option-btn {
+    left: 50%;
+    /* للحفاظ على المركز الأفقي */
+    transform: translateX(-50%) scale(0.8);
+    /* تحريك لضبط المركز + الحجم الأولي */
+}
+
+html[dir="rtl"] .floating-contact-btn.open .option-btn {
+    transform: translateX(-50%) scale(1);
+    /* تحريك لضبط المركز + الحجم النهائي */
+}
+
+
+/* ------------------------------------------------------------------- */
+
+
+/* KEYFRAMES FOR THE CONTINUOUS FLOATING ANIMATION */
+
+
+/* (لا تغييرات كبيرة هنا إلا التأكد من أن translateY تعكس الحركة حول موضعها الثابت) */
+
+
+/* ------------------------------------------------------------------- */
+
+@keyframes floatAnimation1 {
+    /* لأيقونة الهاتف الآن */
+    0% {
+        transform: translateX(-50%) translateY(0px) scale(1);
+    }
+    /* تبدأ من موضعها الأساسي */
+    50% {
+        transform: translateX(-50%) translateY(-5px) scale(1);
+    }
+    /* تتحرك 5px لأعلى من موضعها الأساسي */
+    100% {
+        transform: translateX(-50%) translateY(0px) scale(1);
+    }
+}
+
+@keyframes floatAnimation2 {
+    /* لأيقونة الايميل الآن */
+    0% {
+        transform: translateX(-50%) translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-7px) scale(1);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0px) scale(1);
+    }
+}
+
+@keyframes floatAnimation3 {
+    /* لأيقونة الفيسبوك الآن */
+    0% {
+        transform: translateX(-50%) translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-4px) scale(1);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0px) scale(1);
+    }
+}
+
+@keyframes floatAnimation4 {
+    /* لأيقونة الواتساب الآن */
+    0% {
+        transform: translateX(-50%) translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-6px) scale(1);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0px) scale(1);
+    }
+}
+
+
+/* ملاحظة: أضفت translateX(-50%) إلى الـ keyframes لضمان أنها تحافظ على المركز الأفقي أثناء الحركة العائمة. */
+
+
+/* هذا مهم لأن الأيقونات نفسها لها position: absolute و left: 50% */
